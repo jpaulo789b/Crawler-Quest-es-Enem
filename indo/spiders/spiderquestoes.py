@@ -26,7 +26,15 @@ class SpiderquestoesSpider(scrapy.Spider):
             'http://www.gabarite.com.br/questoes-de-concursos/disciplina/4-informatica',
             'http://www.gabarite.com.br/questoes-de-concursos/disciplina/89-governanca-de-ti',
             'http://www.gabarite.com.br/questoes-de-concursos/disciplina/61-direitos-humanos',
-            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/51-biologia'
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/51-biologia',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/5-conhecimentos-gerais',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/52-veterinaria',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/95-zootecnia',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/49-teologia',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/65-psicologia',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/53-musica',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/28-direito-processual-penal',
+            'http://www.gabarite.com.br/questoes-de-concursos/disciplina/71-direito-notarial-e-registral'
     ]
 
     def parse(self, response):
@@ -36,7 +44,8 @@ class SpiderquestoesSpider(scrapy.Spider):
         forms = conteudo.xpath('form')
         # Inicio do crawler
         for idx, questao in enumerate(conteudo.xpath('ul')):
-            item = IndoItem();
+            item = IndoItem()
+            item['disciplina'] = conteudo.xpath('//*[@id="content"]/h2/span')[0].text_content()
             if len(questao.xpath('li[@class="numero"]')):
                 item['questao'] = questao.xpath('li[@class="numero"]')[0].text_content()
 
