@@ -1,7 +1,7 @@
 # Crawler para questões do enem
 
 
-O crawler foi construido usando como base o framework pyahton scrapy .
+O crawler foi construido usando como base o framework pyhton scrapy .Nessesário ter em seu computador o python instalado juntamente com o scrapy
 
   # - Para Rodar o crawler
   - Unix/Linux
