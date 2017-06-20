@@ -21,7 +21,7 @@ public class Insert {
         String SQLAlternativa = "INSERT INTO public.alternativaquestao(" +
                 " descricao, ordem, resposta, questao_id, index_alternativa, id)" +
                 " VALUES (?, ?, ?, ?, ?, ?)";
-        int i = 0;
+        int i = 1;
         String maxQ = "select id from questao where id = (select max(id) from questao)";
         String maxA = "select id from alternativaquestao where id = (select max(id) from alternativaquestao) ";
         int contadorTOTAL = 0;
@@ -43,7 +43,7 @@ public class Insert {
                 inserirQuestao.setString(4,ques.getEstado());
                 inserirQuestao.setBoolean(5,ques.getObjetiva());
                 inserirQuestao.setString(6,ques.getResposta());
-                inserirQuestao.setInt(7,2);
+                inserirQuestao.setInt(7,1);
                 inserirQuestao.setInt(8,ques.getID());
                 inserirQuestao.execute();
                 PreparedStatement psAlternativa = stmt.prepareStatement(maxA);
@@ -72,6 +72,11 @@ public class Insert {
                 }
 
 
+                String questaotemplate = "INSERT INTO public.questaotemplate(id, questao_id)VALUES (?, ?)";
+                PreparedStatement inserirQuestaotemplate = stmt.prepareStatement(questaotemplate);
+                inserirQuestaotemplate.setInt(1,i++);
+                inserirQuestaotemplate.setInt(2,ques.getID());
+                inserirQuestaotemplate.execute();
 
                 System.out.println("TOTAL DE QUESTÔES INSERIDAS:" + contadorTOTAL++);
             }

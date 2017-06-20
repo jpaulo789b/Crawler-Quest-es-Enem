@@ -7,6 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="postgresql-42.1.1.jre6" level="application" />
+    <orderEntry type="library" name="postgresql-9.1-901.jdbc4" level="project" />
   </component>
 </module>

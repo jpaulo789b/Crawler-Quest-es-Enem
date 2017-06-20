@@ -35,7 +35,7 @@ public class DBConection {
         try {
 
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/SGEP", "postgres",
+                    "jdbc:postgresql://127.0.0.1:5432/sgep", "postgres",
                     "123456");
 
         } catch (SQLException e) {

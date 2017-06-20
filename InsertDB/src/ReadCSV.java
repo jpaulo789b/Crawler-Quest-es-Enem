@@ -18,7 +18,7 @@ public class ReadCSV{
         lista = new ArrayList<>();
         try {
 
-            File fXmlFile = new File("/home/harlock/crawler/indo/indo/spiders/todasquestos.xml");
+            File fXmlFile = new File("/home/minerthal/Documentos/si/todasquestos.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
@@ -47,7 +47,7 @@ public class ReadCSV{
                     questao.setDificuldade("Medio");
                     questao.setEstado("ABERTO");
                     questao.setObjetiva(true);
-                    questao.setResposta(ValorNode(eElement.getElementsByTagName("alternativaCorreta")).split("'")[1]);
+                    questao.setResposta(ValorNode(eElement.getElementsByTagName("alternativaCorreta")).split("'")[1].toUpperCase());
                     ///
                     if(!ValorNode(eElement.getElementsByTagName("alternativa_A")).equals("")){
                         Alternativa A = new Alternativa(); A.setIndex_alternativa(0);
